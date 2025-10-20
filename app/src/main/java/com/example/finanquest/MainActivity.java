@@ -29,13 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         //Criação da Lista de transações e referenciando como objetos
         transactions = new ArrayList<>();
-        transactions.add(new Transaction("DROPBOX PRO", "Assinatura", "-R$ 144,00", "13 OUT 2025"));
+        transactions.add(new Transaction("UBER", "Transporte", "-R$ 85,49", "13 OUT 2025"));
         transactions.add(new Transaction("SPOTIFY PREMIUM", "Assinatura", "-R$ 24,00", "10 OUT 2025"));
         transactions.add(new Transaction("SALÁRIO", "Receita", "+R$ 1518,00", "05 OUT 2025"));
         transactions.add(new Transaction("AMAZON", "Compras Online", " -R$ 44,99", "25 SET 2025"));
         transactions.add(new Transaction("YOUTUBE ADS", "Receita", "+R$ 32,00", "24 SET 2025"));
-        transactions.add(new Transaction("Compras do mercado", "Despesa", "-R$ 250,00", "10 SET 2025"));
-        transactions.add(new Transaction("Imóveis", "Outros", "-R$ 400,00", "10 SET 2025"));
+        transactions.add(new Transaction("Compras do mercado", "Outros", "-R$ 150,00", "10 SET 2025"));
+        transactions.add(new Transaction("Imóveis", "Outros", "-R$ 300,00", "10 SET 2025"));
+        transactions.add(new Transaction("CARTÃO DE CRÉDITO", "credito", "-R$ 199,99", "09 SET 2025"));
+        transactions.add(new Transaction("DROPBOX PRO", "Assinatura", "-R$ 144,00", "09 SET 2025"));
+
 
         //Adapter para deixa-lo mais dinamico
         adapter = new TransactionAdapter(transactions);
@@ -63,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_goals) {
-                Toast.makeText(this, "Metas", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, com.example.finanquest.Goals.GoalsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_achievements) {
                 Toast.makeText(this, "Conquistas", Toast.LENGTH_SHORT).show();

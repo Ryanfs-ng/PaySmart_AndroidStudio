@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinanQuest">
         <activity android:name=".AnalyticsActivity" />
+        <activity android:name=".Goals.GoalsActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

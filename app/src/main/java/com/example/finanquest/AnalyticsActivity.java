@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -38,6 +40,10 @@ public class AnalyticsActivity extends AppCompatActivity {
                 return true;
             } else if (id == R.id.nav_analytics) {
                 return true;
+            } else if (id == R.id.nav_goals) {
+                startActivity(new Intent(this, com.example.finanquest.Goals.GoalsActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                return true;
             }
             return false;
         });
@@ -45,7 +51,6 @@ public class AnalyticsActivity extends AppCompatActivity {
 
         pieChart = findViewById(R.id.pieChart);
 
-        // ⚠️ Simulação: em breve você pode passar as transactions via Intent
         List<Transaction> transactions = (List<Transaction>) getIntent().getSerializableExtra("transactions");
 
         // 🔢 Agrupa os valores por tipo de categoria
@@ -89,6 +94,8 @@ public class AnalyticsActivity extends AppCompatActivity {
         data.setValueFormatter(new PercentFormatter(pieChart));
         data.setValueTextSize(12f);
         data.setValueTextColor(Color.WHITE);
+        dataSet.setDrawValues(false);
+        pieChart.setDrawEntryLabels(false);
 
         // ⚙️ Configura o gráfico
         pieChart.setData(data);
@@ -107,6 +114,27 @@ public class AnalyticsActivity extends AppCompatActivity {
 
         pieChart.animateY(1400);
         pieChart.invalidate();
+
+        RecyclerView recyclerCategorias = findViewById(R.id.recyclerCategoriasAnalytics);
+        recyclerCategorias.setLayoutManager(new LinearLayoutManager(this));
+
+// Soma total dos gastos
+        float total = 0f;
+        for (float valor : categoriaSomas.values()) {
+            total += valor;
+        }
+
+// Cria lista com porcentagens
+        List<CategoriaAnalytics> listaCategorias = new ArrayList<>();
+        for (Map.Entry<String, Float> entry : categoriaSomas.entrySet()) {
+            float porcentagem = (entry.getValue() / total) * 100f;
+            listaCategorias.add(new CategoriaAnalytics(entry.getKey(), porcentagem));
+        }
+
+// Define o adapter
+        CategoriaAnalyticsAdapter categoriaAdapter = new CategoriaAnalyticsAdapter(listaCategorias);
+        recyclerCategorias.setAdapter(categoriaAdapter);
+
 
 
     }
