@@ -34,14 +34,22 @@ public class AnalyticsActivity extends AppCompatActivity {
 
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(this, MainActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            if (id == R.id.nav_analytics) {
                 return true;
-            } else if (id == R.id.nav_analytics) {
-                return true;
+            } else if (id == R.id.nav_home) {
+            startActivity(new Intent(this, MainActivity.class));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            return true;
             } else if (id == R.id.nav_goals) {
                 startActivity(new Intent(this, com.example.finanquest.Goals.GoalsActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                return true;
+            } else if (id == R.id.nav_achievements) {
+                startActivity(new Intent(this, ConquistaActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                return true;
+            } else if (id == R.id.nav_profile) {
+                startActivity(new Intent(this, PerfilActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             }

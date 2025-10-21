@@ -3,16 +3,16 @@ package com.example.finanquest.Goals;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finanquest.AnalyticsActivity;
-import com.example.finanquest.Goals.Goal;
-import com.example.finanquest.Goals.GoalAdapter;
-import com.example.finanquest.NovaMetaDialog;
+import com.example.finanquest.ConquistaActivity;
 import com.example.finanquest.MainActivity;
-import com.example.finanquest.NovaMetaDialog;
+import com.example.finanquest.PerfilActivity;
 import com.example.finanquest.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,18 +38,24 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
 
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.nav_home) {
+            if (id == R.id.nav_goals) {
+                Toast.makeText(this, "Conquistas", Toast.LENGTH_SHORT).show();
+                return true;
+            } else if (id == R.id.nav_home) {
                 startActivity(new Intent(this, MainActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                finish();
                 return true;
-            } else if (id == R.id.nav_goals) {
-            return true;
-        }
-            else if (id == R.id.nav_analytics) {
+            } else if (id == R.id.nav_analytics) {
                 startActivity(new Intent(this, AnalyticsActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                finish();
+                return true;
+            } else if (id == R.id.nav_achievements) {
+                startActivity(new Intent(this, ConquistaActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                return true;
+            } else if (id == R.id.nav_profile) {
+                startActivity(new Intent(this, PerfilActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             }
 
@@ -59,10 +65,10 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
         recyclerGoals = findViewById(R.id.recyclerGoals);
         FloatingActionButton btnAddGoal = findViewById(R.id.btnAddGoal);
 
-        // 🔹 Inicializa a lista
+        // Inicializa a lista
         goals = new ArrayList<>();
 
-        // 🔹 Cria o adapter e configura o RecyclerView
+        // Cria o adapter e configura o RecyclerView
         goalAdapter = new GoalAdapter(goals);
         recyclerGoals.setLayoutManager(new LinearLayoutManager(this));
         recyclerGoals.setAdapter(goalAdapter);
@@ -87,13 +93,13 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
 
         goalAdapter.notifyDataSetChanged();
 
-        // 🔹 Configura o botão de adicionar meta
+        // Configura o botão de adicionar meta
         btnAddGoal.setOnClickListener(v -> {
             com.example.finanquest.NovaMetaDialog dialog = new com.example.finanquest.NovaMetaDialog();
             dialog.show(getSupportFragmentManager(), "NovaMetaDialog");
         });
     }
-
+    // Modelo da meta criada
     public void onMetaCriada(String titulo, String descricao, int atual, int alvo) {
         Goal novaMeta = new Goal(
                 titulo.isEmpty() ? "Nova Meta" : titulo,

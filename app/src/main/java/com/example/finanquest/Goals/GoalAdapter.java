@@ -40,7 +40,6 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
         holder.progressGoal.setProgress(progress);
         holder.tvProgressPercent.setText(progress + "% COMPLETO");
 
-        // Cor e ícone
         holder.progressGoal.getProgressDrawable().setColorFilter(goal.getColor(), android.graphics.PorterDuff.Mode.SRC_IN);
         holder.imgGoalIcon.setImageResource(goal.getIconResId());
     }

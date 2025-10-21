@@ -13,6 +13,8 @@
         android:theme="@style/Theme.FinanQuest">
         <activity android:name=".AnalyticsActivity" />
         <activity android:name=".Goals.GoalsActivity" />
+        <activity android:name=".ConquistaActivity" />
+        <activity android:name=".PerfilActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

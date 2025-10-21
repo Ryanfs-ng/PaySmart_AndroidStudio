@@ -42,7 +42,6 @@ public class Goal {
         return iconResId;
     }
 
-    // Setters opcionais caso queira atualizar os valores depois
     public void setCurrentValue(int currentValue) {
         this.currentValue = currentValue;
     }

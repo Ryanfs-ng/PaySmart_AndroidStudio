@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             dialog.show(getSupportFragmentManager(), "NovaTransacaoDialog");
         });
 
-        //Navegação da Navbar inferior com uso de IDs (no momento so apresenta o nome com TOAST)
+        //Navegação da Navbar inferior com uso de IDs
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -71,10 +71,14 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_achievements) {
-                Toast.makeText(this, "Conquistas", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ConquistaActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_profile) {
-                Toast.makeText(this, "Perfil", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, PerfilActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             }
 
