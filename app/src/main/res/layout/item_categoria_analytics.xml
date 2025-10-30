@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="8dp"
-    android:background="#1E1E3F"
+    android:background="#2B2B2B"
     android:layout_marginBottom="8dp"
     android:gravity="center_vertical"
     android:paddingHorizontal="12dp">
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="41.35%"
-        android:textColor="#C77DFF"
+        android:textColor="#E0E0E0"
         android:textSize="14sp"
         android:textStyle="bold" />
 </LinearLayout>

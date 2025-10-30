@@ -10,13 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FinanQuest">
-        <activity android:name=".AnalyticsActivity" />
-        <activity android:name=".Goals.GoalsActivity" />
-        <activity android:name=".ConquistaActivity" />
-        <activity android:name=".PerfilActivity" />
+        android:theme="@style/Theme.PaySmart">
+        <activity android:name="com.example.paysmart.Controllers.Activity.AnalyticsActivity"/>
+        <activity android:name="com.example.paysmart.Controllers.Activity.GoalsActivity"/>
+        <activity android:name="com.example.paysmart.Controllers.Activity.InvestimentoActivity"/>
+        <activity android:name="com.example.paysmart.Controllers.Activity.PerfilActivity"/>
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.paysmart.Controllers.Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Controllers.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.paysmart.*;
+import com.example.paysmart.Controllers.Adapters.CategoriaAnalyticsAdapter;
+import com.example.paysmart.Models.CategoriaAnalytics;
+import com.example.paysmart.Models.Transaction;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
@@ -41,11 +45,11 @@ public class AnalyticsActivity extends AppCompatActivity {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             return true;
             } else if (id == R.id.nav_goals) {
-                startActivity(new Intent(this, com.example.finanquest.Goals.GoalsActivity.class));
+                startActivity(new Intent(this, GoalsActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_achievements) {
-                startActivity(new Intent(this, ConquistaActivity.class));
+                startActivity(new Intent(this, InvestimentoActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_profile) {
@@ -61,7 +65,7 @@ public class AnalyticsActivity extends AppCompatActivity {
 
         List<Transaction> transactions = (List<Transaction>) getIntent().getSerializableExtra("transactions");
 
-        // 🔢 Agrupa os valores por tipo de categoria
+        // Agrupa os valores por tipo de categoria
         Map<String, Float> categoriaSomas = new HashMap<>();
 
         for (Transaction t : transactions) {
@@ -81,7 +85,7 @@ public class AnalyticsActivity extends AppCompatActivity {
             categoriaSomas.put(categoria, categoriaSomas.getOrDefault(categoria, 0f) + valor);
         }
 
-        // 🎨 Cria as entradas do gráfico
+        // Cria as entradas do gráfico
         List<PieEntry> entries = new ArrayList<>();
         for (Map.Entry<String, Float> entry : categoriaSomas.entrySet()) {
             entries.add(new PieEntry(entry.getValue(), entry.getKey()));
@@ -93,6 +97,7 @@ public class AnalyticsActivity extends AppCompatActivity {
                 Color.parseColor("#FF4D4D"),
                 Color.parseColor("#00B4FF"),
                 Color.parseColor("#00FF7F"),
+                Color.parseColor("#FFD700"),
                 Color.parseColor("#6A5ACD")
         });
         dataSet.setValueTextColor(Color.WHITE);
@@ -105,7 +110,7 @@ public class AnalyticsActivity extends AppCompatActivity {
         dataSet.setDrawValues(false);
         pieChart.setDrawEntryLabels(false);
 
-        // ⚙️ Configura o gráfico
+        // Configura o gráfico
         pieChart.setData(data);
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);

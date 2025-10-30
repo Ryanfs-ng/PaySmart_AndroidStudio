@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Controllers.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.paysmart.Models.CategoriaAnalytics;
+import com.example.paysmart.R;
 
 import java.util.List;
 
@@ -38,13 +41,9 @@ public class CategoriaAnalyticsAdapter extends RecyclerView.Adapter<CategoriaAna
                 holder.iconCategoria.setImageResource(R.drawable.ic_subscriptions);
                 holder.iconCategoria.setColorFilter(0xFFC77DFF);
                 break;
-            case "compras online":
-                holder.iconCategoria.setImageResource(R.drawable.ic_shopping_cart);
-                holder.iconCategoria.setColorFilter(0xFF00B4FF);
-                break;
-            case "despesa":
+            case "transferência":
                 holder.iconCategoria.setImageResource(R.drawable.outline_attach_money_24);
-                holder.iconCategoria.setColorFilter(0xFF66BB6A);
+                holder.iconCategoria.setColorFilter(0xFF00B4FF);
                 break;
             case "transporte":
                 holder.iconCategoria.setImageResource(R.drawable.ic_car);
@@ -54,8 +53,28 @@ public class CategoriaAnalyticsAdapter extends RecyclerView.Adapter<CategoriaAna
                 holder.iconCategoria.setImageResource(R.drawable.ic_credit_card);
                 holder.iconCategoria.setColorFilter(0xFF66BB6A);
                 break;
+            case "carteira paysmart":
+                holder.iconCategoria.setImageResource(R.drawable.ic_carteira);
+                holder.iconCategoria.setColorFilter(0xFFFFD700);
+                break;
+            case "nubank":
+                holder.iconCategoria.setImageResource(R.drawable.ic_carteira);
+                holder.iconCategoria.setColorFilter(0xFFFFD700);
+                break;
+            case "banco do brasil":
+                holder.iconCategoria.setImageResource(R.drawable.ic_carteira);
+                holder.iconCategoria.setColorFilter(0xFFFFD700);
+                break;
+            case "itaú":
+                holder.iconCategoria.setImageResource(R.drawable.ic_carteira);
+                holder.iconCategoria.setColorFilter(0xFFFFD700);
+                break;
+            case "outros":
+                holder.iconCategoria.setImageResource(R.drawable.ic_shopping_cart);
+                holder.iconCategoria.setColorFilter(0xFF7B5FC0);
+                break;
             default:
-                holder.iconCategoria.setImageResource(R.drawable.outline_attach_money_24);
+                holder.iconCategoria.setImageResource(R.drawable.ic_carteira);
                 holder.iconCategoria.setColorFilter(0xFF7B5FC0);
                 break;
         }

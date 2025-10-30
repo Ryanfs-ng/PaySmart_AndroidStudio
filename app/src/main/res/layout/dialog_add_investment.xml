@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/dialog_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Investimento"
+        android:textColor="#E0E0E0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/inputInvestmentName"
+        android:hint="Nome do investimento"
+        android:inputType="textCapWords"
+        android:textColorHint="#888"
+        android:textColor="#E0E0E0"
+        android:backgroundTint="#1E3A5F"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputInvestmentReturn"
+        android:hint="Rendimento (% a.a)"
+        android:inputType="numberDecimal"
+        android:textColorHint="#888"
+        android:textColor="#E0E0E0"
+        android:backgroundTint="#1E3A5F"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+
+    <EditText
+        android:id="@+id/inputInvestmentValue"
+        android:hint="Valor investido (R$)"
+        android:inputType="numberDecimal"
+        android:textColorHint="#888"
+        android:textColor="#E0E0E0"
+        android:backgroundTint="#1E3A5F"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/btnSaveInvestment"
+        android:text="Adicionar"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1E3A5F"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.finanquest"
+    namespace = "com.example.paysmart"
     compileSdk = 36 // Make sure this is a valid SDK version
 
     defaultConfig {
-        applicationId = "com.example.finanquest"
+        applicationId = "com.example.paysmart"
         minSdk = 34 // It's recommended to use a lower minSdk for broader compatibility
         targetSdk = 34
         versionCode = 1

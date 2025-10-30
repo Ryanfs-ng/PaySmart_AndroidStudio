@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#10002B">
+    android:background="#1E1E1E">
 
     <!-- Conteúdo rolável -->
     <ScrollView
@@ -22,23 +22,30 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/ic_goal"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_goal_flag"
-                android:layout_marginEnd="8dp"
-                app:tint="#B968FF" />
-
-            <TextView
-                android:id="@+id/tvGoalsTitle"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="METAS FINANCEIRAS"
-                android:textColor="#B968FF"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/ic_goal"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_goal_flag"
+                    android:layout_marginEnd="8dp"
+                    app:tint="#1E3A5F" />
+
+                <TextView
+                    android:id="@+id/tvGoalsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="METAS FINANCEIRAS"
+                    android:textColor="#E0E0E0"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerGoals"
@@ -55,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
-        app:backgroundTint="#B968FF"
+        app:backgroundTint="#1E3A5F"
         app:tint="@color/white"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
@@ -66,7 +73,7 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#1C1433"
+        android:background="#2B2B2B"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/bottom_nav_menu"

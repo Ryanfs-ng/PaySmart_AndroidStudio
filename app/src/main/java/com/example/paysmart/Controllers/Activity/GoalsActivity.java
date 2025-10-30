@@ -1,4 +1,4 @@
-package com.example.finanquest.Goals;
+package com.example.paysmart.Controllers.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,18 +9,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finanquest.AnalyticsActivity;
-import com.example.finanquest.ConquistaActivity;
-import com.example.finanquest.MainActivity;
-import com.example.finanquest.PerfilActivity;
-import com.example.finanquest.R;
+import com.example.paysmart.Controllers.Adapters.GoalAdapter;
+import com.example.paysmart.Models.Goal;
+import com.example.paysmart.R;
+import com.example.paysmart.Views.NovaMetaDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoalsActivity extends AppCompatActivity implements com.example.finanquest.NovaMetaDialog.NovaMetaListener {
+public class GoalsActivity extends AppCompatActivity implements NovaMetaDialog.NovaMetaListener {
 
 
     private RecyclerView recyclerGoals;
@@ -50,7 +49,7 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_achievements) {
-                startActivity(new Intent(this, ConquistaActivity.class));
+                startActivity(new Intent(this, InvestimentoActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_profile) {
@@ -78,7 +77,7 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
                 "Guardar dinheiro para um laptop novo",
                 200,
                 1000,
-                Color.parseColor("#B968FF"),
+                Color.parseColor("#4AA3FF"),
                 R.drawable.ic_laptop
         ));
 
@@ -87,7 +86,7 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
                 "Economizar para viagem de fim de ano",
                 500,
                 2000,
-                Color.parseColor("#FF8A65"),
+                Color.parseColor("#4AA3FF"),
                 R.drawable.ic_travel
         ));
 
@@ -95,7 +94,7 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
 
         // Configura o botão de adicionar meta
         btnAddGoal.setOnClickListener(v -> {
-            com.example.finanquest.NovaMetaDialog dialog = new com.example.finanquest.NovaMetaDialog();
+            NovaMetaDialog dialog = new NovaMetaDialog();
             dialog.show(getSupportFragmentManager(), "NovaMetaDialog");
         });
     }
@@ -106,7 +105,7 @@ public class GoalsActivity extends AppCompatActivity implements com.example.fina
                 descricao.isEmpty() ? "Descrição da meta" : descricao,
                 atual,
                 alvo <= 0 ? 1000 : alvo,
-                Color.parseColor("#B968FF"),
+                Color.parseColor("#4AA3FF"),
                 R.drawable.ic_goal_flag
         );
         goals.add(novaMeta);

@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Views;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,7 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
-import com.example.finanquest.R;
+
+import com.example.paysmart.R;
 
 public class NovaMetaDialog extends DialogFragment {
 

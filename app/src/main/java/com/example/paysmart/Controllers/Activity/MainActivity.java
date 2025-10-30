@@ -1,12 +1,16 @@
-package com.example.finanquest;
+package com.example.paysmart.Controllers.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.SurfaceControl;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.paysmart.Models.Transaction;
+import com.example.paysmart.R;
+import com.example.paysmart.Views.NovaTransacaoDialog;
+import com.example.paysmart.Controllers.Adapters.TransactionAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
@@ -30,11 +34,9 @@ public class MainActivity extends AppCompatActivity {
         //Criação da Lista de transações e referenciando como objetos
         transactions = new ArrayList<>();
         transactions.add(new Transaction("UBER", "Transporte", "-R$ 85,49", "13 OUT 2025"));
-        transactions.add(new Transaction("SPOTIFY PREMIUM", "Assinatura", "-R$ 24,00", "10 OUT 2025"));
+        transactions.add(new Transaction("Transferência para Ricardo", "Transferência", "-R$ 120,00", "10 OUT 2025"));
         transactions.add(new Transaction("SALÁRIO", "Receita", "+R$ 1518,00", "05 OUT 2025"));
-        transactions.add(new Transaction("AMAZON", "Compras Online", " -R$ 44,99", "25 SET 2025"));
         transactions.add(new Transaction("YOUTUBE ADS", "Receita", "+R$ 32,00", "24 SET 2025"));
-        transactions.add(new Transaction("Compras do mercado", "Outros", "-R$ 150,00", "10 SET 2025"));
         transactions.add(new Transaction("Imóveis", "Outros", "-R$ 300,00", "10 SET 2025"));
         transactions.add(new Transaction("CARTÃO DE CRÉDITO", "credito", "-R$ 199,99", "09 SET 2025"));
         transactions.add(new Transaction("DROPBOX PRO", "Assinatura", "-R$ 144,00", "09 SET 2025"));
@@ -61,17 +63,17 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             } else if (id == R.id.nav_analytics) {
                 Intent intent = new Intent(MainActivity.this, AnalyticsActivity.class);
-                intent.putExtra("transactions", new ArrayList<>(transactions)); // precisa ser Serializable
+                intent.putExtra("transactions", new ArrayList<>(transactions));
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_goals) {
-                Intent intent = new Intent(MainActivity.this, com.example.finanquest.Goals.GoalsActivity.class);
+                Intent intent = new Intent(MainActivity.this, GoalsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_achievements) {
-                Intent intent = new Intent(MainActivity.this, ConquistaActivity.class);
+                Intent intent = new Intent(MainActivity.this, InvestimentoActivity.class);
                 startActivity(intent);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;

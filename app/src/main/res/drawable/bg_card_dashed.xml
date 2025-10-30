@@ -2,9 +2,9 @@
     android:shape="rectangle">
     <stroke
         android:width="2dp"
-        android:color="#BB86FC"
+        android:color="#1E3A5F"
         android:dashWidth="10dp"
         android:dashGap="6dp" />
-    <solid android:color="#12122A"/>
+    <solid android:color="#2B2B2B"/>
     <corners android:radius="12dp"/>
 </shape>

@@ -6,8 +6,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#10002B"
-    tools:context=".MainActivity">
+    android:background="#1E1E1E"
+    tools:context=".Controllers.Activity.MainActivity">
 
     <!-- HEADER -->
     <LinearLayout
@@ -28,14 +28,14 @@
             android:layout_marginStart="-5sp"
             android:contentDescription="Logo"
             android:src="@drawable/ic_launcher_foreground"
-            app:tint="#B968FF" />
+            app:tint="#1E3A5F" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
-            android:text="FINANQUEST"
-            android:textColor="#B968FF"
+            android:paddingStart="6dp"
+            android:text="PAYSMART"
+            android:textColor="#E0E0E0"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -49,8 +49,9 @@
                 android:id="@+id/welcomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:text="BEM-VINDO DE VOLTA,"
-                android:textColor="#AFAFEF"
+                android:textColor="#E0E0E0"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -58,18 +59,12 @@
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:text="JOÃO SILVA"
-                android:textColor="#7B61FF"
+                android:textColor="#6B7280"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/userLevel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LEVEL 7 - TRADER INICIANTE"
-                android:textColor="#5A75FF"
-                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,10 +79,11 @@
                 android:id="@+id/notificationIcon"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="2dp"
                 android:contentDescription="Notificações"
                 android:src="@drawable/ic_notifications"
-                app:tint="#B968FF" />
+                app:tint="#1E3A5F" />
 
         </LinearLayout>
     </LinearLayout>
@@ -138,7 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TRANSAÇÕES RECENTES"
-        android:textColor="#B968FF"
+        android:textColor="#E0E0E0"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
@@ -164,7 +160,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="#B968FF"
+        app:backgroundTint="#1E3A5F"
         app:tint="@android:color/white"
         android:contentDescription="Adicionar nova transação"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
@@ -175,12 +171,14 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#1C1433"
+        android:layout_marginBottom="4dp"
+        android:background="#2B2B2B"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

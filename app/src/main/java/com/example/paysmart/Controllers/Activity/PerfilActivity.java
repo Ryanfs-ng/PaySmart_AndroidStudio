@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Controllers.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.finanquest.Goals.GoalsActivity;
-import com.example.finanquest.R;
+import com.example.paysmart.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PerfilActivity extends AppCompatActivity {
@@ -47,7 +46,7 @@ public class PerfilActivity extends AppCompatActivity {
                 finish();
                 return true;
             } else if (id == R.id.nav_achievements) {
-                startActivity(new Intent(this, ConquistaActivity.class));
+                startActivity(new Intent(this, InvestimentoActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 return true;
@@ -57,7 +56,6 @@ public class PerfilActivity extends AppCompatActivity {
         });
 
         tvNome = findViewById(R.id.tvNome);
-        tvNivel = findViewById(R.id.tvNivel);
         tvTotalGuardado = findViewById(R.id.tvTotalGuardado);
         tvMetas = findViewById(R.id.tvMetas);
         tvConquistas = findViewById(R.id.tvConquistas);
@@ -69,10 +67,9 @@ public class PerfilActivity extends AppCompatActivity {
 
         // Exemplo de dados mockados
         tvNome.setText("João Silva");
-        tvNivel.setText("Level 7 - Trader Iniciante");
-        tvTotalGuardado.setText("R$ 45.250,00");
-        tvMetas.setText("3");
-        tvConquistas.setText("12");
+        tvTotalGuardado.setText("0010");
+        tvMetas.setText("57580773-2");
+        tvConquistas.setText("0370");
 
         tvNumeroCartao1.setText("**********************");
         tvValidade.setText("12/28");

@@ -1,4 +1,4 @@
-package com.example.finanquest.Goals;
+package com.example.paysmart.Models;
 
 public class Goal {
     private String name;

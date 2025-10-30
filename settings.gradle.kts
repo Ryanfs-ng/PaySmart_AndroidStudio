@@ -21,5 +21,5 @@ dependencyResolutionManagement {
 }
 
 
-rootProject.name = "FinanQuest"
+rootProject.name = "PaySmart"
 include(":app")

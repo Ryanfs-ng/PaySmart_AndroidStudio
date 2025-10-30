@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#241B3F"
+    android:background="#2B2B2B"
     android:padding="16dp"
     android:layout_marginBottom="12dp"
-    android:backgroundTint="#241B3F"
+    android:backgroundTint="#2B2B2B"
     android:clipToOutline="true"
     android:elevation="4dp"
     android:layout_marginHorizontal="0dp"
@@ -26,7 +26,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="12dp"
-            app:tint="#B968FF" />
+            app:tint="#1E3A5F" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -81,8 +81,8 @@
         android:max="100"
         android:progress="0"
         android:indeterminate="false"
-        android:progressBackgroundTint="#2E214A"
-        android:progressTint="@color/purple_500" />
+        android:progressBackgroundTint="#4AA3FF"
+        android:progressTint="@color/blue_500" />
 
 
     <TextView
@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="35.6% COMPLETO"
-        android:textColor="#B968FF"
+        android:textColor="#4AA3FF"
         android:textSize="12sp"
         android:layout_gravity="end"/>
 </LinearLayout>

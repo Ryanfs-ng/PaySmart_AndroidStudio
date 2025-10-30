@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Models;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.example.finanquest.Goals;
+package com.example.paysmart.Controllers.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finanquest.R;
+import com.example.paysmart.Models.Goal;
+import com.example.paysmart.R;
+
 import java.util.List;
 
 public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder> {

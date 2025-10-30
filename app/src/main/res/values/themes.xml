@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FinanQuest" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.PaySmart" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorSurfaceVariant">#2B2B2B</item>
+        <item name="colorSecondaryContainer">#303030</item>
+        <item name="colorOnSecondaryContainer">#FFFFFF</item>
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:statusBarColor">#2B2B2B</item> <!-- ou outra cor que quiser -->
+        <item name="android:windowLightStatusBar">false</item> <!-- Ícones brancos -->
+
     </style>
 
-    <style name="Theme.FinanQuest" parent="Base.Theme.FinanQuest" />
+    <style name="Theme.PaySmart" parent="Base.Theme.PaySmart" />
 </resources>

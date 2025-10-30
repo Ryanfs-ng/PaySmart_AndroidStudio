@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Controllers.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.finanquest.R;
-import com.example.finanquest.Transaction;
+import com.example.paysmart.Models.Transaction;
+import com.example.paysmart.R;
 
 import java.util.List;
 

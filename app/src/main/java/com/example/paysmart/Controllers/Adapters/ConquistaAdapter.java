@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Controllers.Adapters;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -7,6 +7,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.paysmart.Models.Conquista;
+import com.example.paysmart.R;
+
 import java.util.List;
 
 public class ConquistaAdapter extends RecyclerView.Adapter<ConquistaAdapter.ViewHolder> {

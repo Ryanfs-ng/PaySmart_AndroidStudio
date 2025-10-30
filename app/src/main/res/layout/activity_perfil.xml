@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A0A1A">
+    android:background="#1E1E1E">
 
     <!-- Conteúdo rolável -->
     <ScrollView
@@ -24,7 +24,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#12122A"
+                app:cardBackgroundColor="#2B2B2B"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="3dp"
                 android:layout_marginBottom="16dp">
@@ -40,7 +40,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="PERFIL DO JOGADOR"
-                        android:textColor="#BB86FC"
+                        android:textColor="#E0E0E0"
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:letterSpacing="0.05"
@@ -61,19 +61,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="JOÃO SILVA"
-                        android:textColor="#BB86FC"
+                        android:textColor="#E0E0E0"
                         android:textStyle="bold"
                         android:textSize="16sp"
                         android:layout_marginTop="8dp"
-                        android:layout_gravity="center_horizontal"/>
-
-                    <TextView
-                        android:id="@+id/tvNivel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LEVEL 7 - TRADER INICIANTE"
-                        android:textColor="#6A6AFF"
-                        android:textSize="13sp"
                         android:layout_gravity="center_horizontal"/>
 
                     <View
@@ -83,6 +74,24 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/tvDadosBancarios"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DADOS BANCÁRIOS"
+                        android:textColor="#E0E0E0"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:letterSpacing="0.05"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
                     <!-- Estatísticas -->
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -91,7 +100,7 @@
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp">
 
-                        <!-- Linha: TOTAL GUARDADO -->
+                        <!-- Linha: Agência -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -103,7 +112,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="TOTAL GUARDADO"
+                                android:text="AGÊNCIA"
                                 android:textColor="#AAA"
                                 android:textSize="13sp"/>
 
@@ -111,12 +120,12 @@
                                 android:id="@+id/tvTotalGuardado"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="R$ 45.250,00"
-                                android:textColor="#BB86FC"
+                                android:text="0010"
+                                android:textColor="#E0E0E0"
                                 android:textStyle="bold"/>
                         </LinearLayout>
 
-                        <!-- Linha: METAS COMPLETADAS -->
+                        <!-- Linha: Conta -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -128,7 +137,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="METAS COMPLETADAS"
+                                android:text="CONTA"
                                 android:textColor="#AAA"
                                 android:textSize="13sp"/>
 
@@ -136,12 +145,12 @@
                                 android:id="@+id/tvMetas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="3"
-                                android:textColor="#BB86FC"
+                                android:text="57580773-2"
+                                android:textColor="#E0E0E0"
                                 android:textStyle="bold"/>
                         </LinearLayout>
 
-                        <!-- Linha: CONQUISTAS -->
+                        <!-- Linha: Banco -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -153,7 +162,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="CONQUISTAS"
+                                android:text="BANCO"
                                 android:textColor="#AAA"
                                 android:textSize="13sp"/>
 
@@ -161,9 +170,24 @@
                                 android:id="@+id/tvConquistas"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="12"
-                                android:textColor="#BB86FC"
+                                android:text="0370"
+                                android:textColor="#E0E0E0"
                                 android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingVertical="6dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="PaySmart Pagamento S.A - Instituição de Pagamentos "
+                            android:textColor="#AAA"
+                            android:textSize="13sp"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -191,7 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NÚMERO DO CARTÃO"
-                        android:textColor="#BB86FC"
+                        android:textColor="#B0B0FF"
                         android:textSize="13sp"/>
 
                     <TextView
@@ -217,7 +241,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="VALIDADE"
-                            android:textColor="#BB86FC"
+                            android:textColor="#B0B0FF"
                             android:textSize="13sp"/>
 
                         <TextView
@@ -225,7 +249,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="CÓD. DE SEGURANÇA"
-                            android:textColor="#BB86FC"
+                            android:textColor="#B0B0FF"
                             android:textSize="13sp"
                             android:gravity="end"/>
                     </LinearLayout>
@@ -263,7 +287,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="PayPal"
-                        android:textColor="#BB86FC"
+                        android:textColor="#B0B0FF"
                         android:textStyle="italic"
                         android:gravity="end"
                         android:layout_marginTop="12dp"/>
@@ -297,7 +321,7 @@
                         android:layout_height="wrap_content"
                         android:text="+"
                         android:textSize="28sp"
-                        android:textColor="#BB86FC"/>
+                        android:textColor="#1E3A5F"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -317,7 +341,7 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#1C1433"
+        android:background="#2B2B2B"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/bottom_nav_menu"

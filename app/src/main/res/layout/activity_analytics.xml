@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#10002B">
+    android:background="#1E1E1E">
 
     <!-- Conteúdo rolável -->
     <ScrollView
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gastos por categoria"
-                android:textColor="#B968FF"
+                android:textColor="#E0E0E0"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TOTAL GASTO ESTE MÊS "
-                    android:textColor="#B388FF"
+                    android:textColor="#E0E0E0"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -74,9 +74,67 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="R$ 547,98"
-                    android:textColor="#B388FF"
+                    android:textColor="#E0E0E0"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:padding="12dp"
+                android:background="@drawable/bg_export_area"
+                android:layout_marginBottom="60dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:elevation="4dp"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:id="@+id/exportarLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exportar como:"
+                    android:textColor="#E0E0E0"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnExportarPDF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PDF"
+                        android:layout_marginEnd="12dp"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#FF4D4D"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:drawableLeft="@drawable/ic_file_pdf"
+                        android:drawablePadding="8dp" />
+
+                    <Button
+                        android:id="@+id/btnExportarExcel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Excel"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#4CAF50"
+                        android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
+                        android:drawableLeft="@drawable/ic_file_excel"
+                        android:drawablePadding="8dp" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -87,7 +145,7 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#1C1433"
+        android:background="#2B2B2B"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/bottom_nav_menu"

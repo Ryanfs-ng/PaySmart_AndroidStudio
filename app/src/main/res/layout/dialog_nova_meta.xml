@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#1E1E2A"
+    android:background="#1E1E1E"
     android:padding="20dp">
 
     <LinearLayout
@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NOVA META FINANCEIRA"
-            android:textColor="#B968FF"
+            android:textColor="#E0E0E0"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginBottom="16dp" />
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:hint="Título da meta"
             android:inputType="text"
-            android:backgroundTint="#B968FF"
+            android:backgroundTint="#1E3A5F"
             android:textColor="#FFFFFF"
             android:textColorHint="#8A8A8A"
             android:layout_marginBottom="10dp"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:hint="Descrição"
             android:inputType="text"
-            android:backgroundTint="#B968FF"
+            android:backgroundTint="#1E3A5F"
             android:textColor="#FFFFFF"
             android:textColorHint="#8A8A8A"
             android:layout_marginBottom="10dp"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:hint="Valor atual (R$)"
             android:inputType="numberDecimal"
-            android:backgroundTint="#B968FF"
+            android:backgroundTint="#1E3A5F"
             android:textColor="#FFFFFF"
             android:textColorHint="#8A8A8A"
             android:layout_marginBottom="10dp"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:hint="Meta final (R$)"
             android:inputType="numberDecimal"
-            android:backgroundTint="#B968FF"
+            android:backgroundTint="#1E3A5F"
             android:textColor="#FFFFFF"
             android:textColorHint="#8A8A8A"
             android:layout_marginBottom="16dp"
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:text="SALVAR"
             android:textAllCaps="true"
-            android:backgroundTint="#B968FF"
+            android:backgroundTint="#1E3A5F"
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 </ScrollView>

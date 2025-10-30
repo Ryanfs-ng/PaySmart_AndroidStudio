@@ -1,4 +1,4 @@
-package com.example.finanquest;
+package com.example.paysmart.Views;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -19,6 +19,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.paysmart.Controllers.Activity.MainActivity;
+import com.example.paysmart.R;
+
 import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -42,13 +46,7 @@ public class NovaTransacaoDialog extends DialogFragment {
         Button btnCriar = view.findViewById(R.id.btnCriarTransacao);
 
         // Criação de Spinner para ter varias categorias de transações
-        String[] categorias = {"Receita", "Compras Online", "Assinatura", "Comida", "Outros"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-//                requireContext(),
-//                android.R.layout.simple_spinner_dropdown_item,
-//                categorias
-//        );
-//        spinnerCategoria.setAdapter(adapter);
+        String[] categorias = {"Transferência", "Depósito", "Pagamento"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 requireContext(),
                 android.R.layout.simple_spinner_item,
@@ -90,6 +88,7 @@ public class NovaTransacaoDialog extends DialogFragment {
 
         // Formatação do valor digitado e impede de deixa-lo vazio
         etValor.addTextChangedListener(new TextWatcher() {
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -131,9 +130,37 @@ public class NovaTransacaoDialog extends DialogFragment {
             }
         });
 
+        Spinner spinnerOrigem = view.findViewById(R.id.spinnerOrigem);
+
+        String[] origens = {"Carteira PaySmart", "Banco do Brasil", "Itaú", "Nubank", "Bradesco"};
+        ArrayAdapter<String> origemAdapter = new ArrayAdapter<>(
+                requireContext(),
+                android.R.layout.simple_spinner_item,
+                origens
+        ) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                ((TextView) view).setTextColor(Color.WHITE); // cor do texto do spinner "fechado"
+                return view;
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                ((TextView) view).setTextColor(Color.WHITE); // cor do texto do dropdown
+                return view;
+            }
+        };
+        origemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerOrigem.setAdapter(origemAdapter);
+
+
+
         // Botão para criação da transação e criando padrões caso campos estejam vazios
         btnCriar.setOnClickListener(v -> {
             String data = etData.getText().toString();
+            String origem = spinnerOrigem.getSelectedItem().toString();
             String categoria = spinnerCategoria.getSelectedItem().toString();
             String beneficiario = etBeneficiario.getText().toString();
             String valor = etValor.getText().toString();
@@ -150,8 +177,8 @@ public class NovaTransacaoDialog extends DialogFragment {
 
             if (getActivity() instanceof MainActivity) {
                 ((MainActivity) getActivity()).adicionarTransacao(
-                        beneficiario.isEmpty() ? "Nova Transação" : beneficiario,
-                        categoria,
+                        beneficiario.isEmpty() ? "Nova Transação" : "Transferência para " + beneficiario,
+                        origem,
                         valor.isEmpty() ? "R$ 0,00" : valor,
                         data.isEmpty() ? "Hoje" : data
                 );
