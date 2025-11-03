@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,8 @@ public class InvestimentoActivity extends AppCompatActivity {
     private ArrayList<PieEntry> entries = new ArrayList<>();
     private float totalInvestido = 32450f;
 
+    private LinearLayout dynamicInvestmentsContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class InvestimentoActivity extends AppCompatActivity {
         pieChart = findViewById(R.id.investmentChart);
         totalInvestidoText = findViewById(R.id.totalInvestidoText);
         investmentsContainer = findViewById(R.id.investmentsContainer);
+        dynamicInvestmentsContainer = findViewById(R.id.dynamicInvestmentsContainer);
 
         setupChart();
         setupBottomNavigation();
@@ -94,10 +98,10 @@ public class InvestimentoActivity extends AppCompatActivity {
         card.setGravity(Gravity.CENTER_VERTICAL);
 
         // ícone (pode trocar por ImageView com drawable)
-        TextView icon = new TextView(this);
-        icon.setText("●"); // marcador simples — substitua por ImageView se preferir
-        icon.setTextSize(20);
-        icon.setTextColor(Color.parseColor("#1E3A5F"));
+        ImageView icon = new ImageView(this);
+        icon.setImageResource(R.drawable.outline_attach_money_24);
+        icon.setMinimumWidth(20);
+        icon.setColorFilter(Color.parseColor("#1E3A5F"));
         LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(dpToPx(40), dpToPx(40));
         iconParams.setMarginEnd(dpToPx(12));
         icon.setLayoutParams(iconParams);
@@ -133,7 +137,7 @@ public class InvestimentoActivity extends AppCompatActivity {
         card.addView(tvValue);
 
         // adicionar ao container
-        investmentsContainer.addView(card, 0); // adiciona no topo (0) ou use addView(card) para final
+        dynamicInvestmentsContainer.addView(card);
     }
 
     private int dpToPx(int dp) {
@@ -190,7 +194,20 @@ public class InvestimentoActivity extends AppCompatActivity {
     }
 
     private void updateChart() {
-        PieDataSet dataSet = new PieDataSet(entries, "");
+        // Recalcula o total atual de todos os valores
+        float somaTotal = 0f;
+        for (PieEntry e : entries) {
+            somaTotal += e.getValue();
+        }
+
+        // Normaliza os valores (para manter porcentagens corretas)
+        ArrayList<PieEntry> normalizedEntries = new ArrayList<>();
+        for (PieEntry e : entries) {
+            float percentual = (e.getValue() / somaTotal) * 100f;
+            normalizedEntries.add(new PieEntry(percentual, e.getLabel()));
+        }
+
+        PieDataSet dataSet = new PieDataSet(normalizedEntries, "");
         dataSet.setColors(
                 Color.parseColor("#1E3A5F"),
                 Color.parseColor("#324C7C"),
@@ -204,6 +221,7 @@ public class InvestimentoActivity extends AppCompatActivity {
         PieData data = new PieData(dataSet);
         data.setValueFormatter(new PercentFormatter(pieChart));
 
+        pieChart.setUsePercentValues(true);
         pieChart.setData(data);
         pieChart.invalidate();
     }

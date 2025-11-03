@@ -224,6 +224,13 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/dynamicInvestmentsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"/>
+
             <!-- Botão flutuante -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnAddInvestment"
