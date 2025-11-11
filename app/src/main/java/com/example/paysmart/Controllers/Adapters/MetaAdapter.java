@@ -9,17 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.paysmart.Models.Goal;
+import com.example.paysmart.Models.Meta;
 import com.example.paysmart.R;
 
 import java.util.List;
 
-public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder> {
+public class MetaAdapter extends RecyclerView.Adapter<MetaAdapter.GoalViewHolder> {
 
-    private List<Goal> goals;
+    private List<Meta> metas;
 
-    public GoalAdapter(List<Goal> goals) {
-        this.goals = goals;
+    public MetaAdapter(List<Meta> metas) {
+        this.metas = metas;
     }
 
     @NonNull
@@ -31,24 +31,24 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull GoalViewHolder holder, int position) {
-        Goal goal = goals.get(position);
+        Meta meta = metas.get(position);
 
-        holder.tvGoalName.setText(goal.getName());
-        holder.tvGoalDescription.setText(goal.getDescription());
-        holder.tvProgressValue.setText("R$ " + goal.getCurrentValue() + " / R$ " + goal.getTargetValue());
+        holder.tvGoalName.setText(meta.getNome());
+        holder.tvGoalDescription.setText(meta.getDescricao());
+        holder.tvProgressValue.setText("R$ " + meta.getValorAtual() + " / R$ " + meta.getValorMeta());
 
-        int progress = (int)((goal.getCurrentValue() * 100f) / goal.getTargetValue());
+        int progress = (int)((meta.getValorAtual() * 100f) / meta.getValorMeta());
         if(progress > 100) progress = 100;
         holder.progressGoal.setProgress(progress);
         holder.tvProgressPercent.setText(progress + "% COMPLETO");
 
-        holder.progressGoal.getProgressDrawable().setColorFilter(goal.getColor(), android.graphics.PorterDuff.Mode.SRC_IN);
-        holder.imgGoalIcon.setImageResource(goal.getIconResId());
+        holder.progressGoal.getProgressDrawable().setColorFilter(meta.getCor(), android.graphics.PorterDuff.Mode.SRC_IN);
+        holder.imgGoalIcon.setImageResource(meta.getIconeId());
     }
 
     @Override
     public int getItemCount() {
-        return goals.size();
+        return metas.size();
     }
 
     static class GoalViewHolder extends RecyclerView.ViewHolder {

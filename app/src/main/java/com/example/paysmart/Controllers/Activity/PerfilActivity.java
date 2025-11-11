@@ -21,7 +21,6 @@ public class PerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        // Para manter o ícone ativo
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
         bottomNav.setSelectedItemId(R.id.nav_profile);
 
@@ -41,7 +40,7 @@ public class PerfilActivity extends AppCompatActivity {
                 finish();
                 return true;
             } else if (id == R.id.nav_goals) {
-                startActivity(new Intent(this, GoalsActivity.class));
+                startActivity(new Intent(this, MetasActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 return true;
@@ -65,7 +64,6 @@ public class PerfilActivity extends AppCompatActivity {
         TextView tvValidade = findViewById(R.id.tvValidade);
         TextView tvCvv = findViewById(R.id.tvCvv);
 
-        // Exemplo de dados mockados
         tvNome.setText("João Silva");
         tvTotalGuardado.setText("0010");
         tvMetas.setText("57580773-2");

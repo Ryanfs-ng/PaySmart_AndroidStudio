@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.paysmart.*;
 import com.example.paysmart.Controllers.Adapters.CategoriaAnalyticsAdapter;
 import com.example.paysmart.Models.CategoriaAnalytics;
-import com.example.paysmart.Models.Transaction;
+import com.example.paysmart.Models.Transacao;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
@@ -45,7 +45,7 @@ public class AnalyticsActivity extends AppCompatActivity {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             return true;
             } else if (id == R.id.nav_goals) {
-                startActivity(new Intent(this, GoalsActivity.class));
+                startActivity(new Intent(this, MetasActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
             } else if (id == R.id.nav_achievements) {
@@ -63,14 +63,14 @@ public class AnalyticsActivity extends AppCompatActivity {
 
         pieChart = findViewById(R.id.pieChart);
 
-        List<Transaction> transactions = (List<Transaction>) getIntent().getSerializableExtra("transactions");
+        List<Transacao> transacaos = (List<Transacao>) getIntent().getSerializableExtra("transactions");
 
         // Agrupa os valores por tipo de categoria
         Map<String, Float> categoriaSomas = new HashMap<>();
 
-        for (Transaction t : transactions) {
-            String categoria = t.getType();
-            String valorStr = t.getAmount().replace("R$", "")
+        for (Transacao t : transacaos) {
+            String categoria = t.getTipo();
+            String valorStr = t.getQuantia().replace("R$", "")
                     .replace("+", "").replace("-", "")
                     .replace(",", ".").trim();
 
@@ -80,7 +80,7 @@ public class AnalyticsActivity extends AppCompatActivity {
             } catch (NumberFormatException ignored) {}
 
             // Ignora receitas (mostramos apenas gastos)
-            if (!t.getAmount().contains("-")) continue;
+            if (!t.getQuantia().contains("-")) continue;
 
             categoriaSomas.put(categoria, categoriaSomas.getOrDefault(categoria, 0f) + valor);
         }
@@ -131,7 +131,6 @@ public class AnalyticsActivity extends AppCompatActivity {
         RecyclerView recyclerCategorias = findViewById(R.id.recyclerCategoriasAnalytics);
         recyclerCategorias.setLayoutManager(new LinearLayoutManager(this));
 
-// Soma total dos gastos
         float total = 0f;
         for (float valor : categoriaSomas.values()) {
             total += valor;
@@ -144,7 +143,6 @@ public class AnalyticsActivity extends AppCompatActivity {
             listaCategorias.add(new CategoriaAnalytics(entry.getKey(), porcentagem));
         }
 
-// Define o adapter
         CategoriaAnalyticsAdapter categoriaAdapter = new CategoriaAnalyticsAdapter(listaCategorias);
         recyclerCategorias.setAdapter(categoriaAdapter);
 

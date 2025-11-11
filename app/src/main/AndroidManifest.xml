@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PaySmart">
         <activity android:name="com.example.paysmart.Controllers.Activity.AnalyticsActivity"/>
-        <activity android:name="com.example.paysmart.Controllers.Activity.GoalsActivity"/>
+        <activity android:name="com.example.paysmart.Controllers.Activity.MetasActivity"/>
         <activity android:name="com.example.paysmart.Controllers.Activity.InvestimentoActivity"/>
         <activity android:name="com.example.paysmart.Controllers.Activity.PerfilActivity"/>
         <activity

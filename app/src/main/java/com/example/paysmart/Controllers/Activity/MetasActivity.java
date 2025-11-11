@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.paysmart.Controllers.Adapters.GoalAdapter;
-import com.example.paysmart.Models.Goal;
+import com.example.paysmart.Controllers.Adapters.MetaAdapter;
+import com.example.paysmart.Models.Meta;
 import com.example.paysmart.R;
 import com.example.paysmart.Views.NovaMetaDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,12 +19,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoalsActivity extends AppCompatActivity implements NovaMetaDialog.NovaMetaListener {
+public class MetasActivity extends AppCompatActivity implements NovaMetaDialog.NovaMetaListener {
 
 
     private RecyclerView recyclerGoals;
-    private GoalAdapter goalAdapter;
-    private List<Goal> goals;
+    private MetaAdapter metaAdapter;
+    private List<Meta> metas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +65,14 @@ public class GoalsActivity extends AppCompatActivity implements NovaMetaDialog.N
         FloatingActionButton btnAddGoal = findViewById(R.id.btnAddGoal);
 
         // Inicializa a lista
-        goals = new ArrayList<>();
+        metas = new ArrayList<>();
 
         // Cria o adapter e configura o RecyclerView
-        goalAdapter = new GoalAdapter(goals);
+        metaAdapter = new MetaAdapter(metas);
         recyclerGoals.setLayoutManager(new LinearLayoutManager(this));
-        recyclerGoals.setAdapter(goalAdapter);
+        recyclerGoals.setAdapter(metaAdapter);
 
-        goals.add(new Goal(
+        metas.add(new Meta(
                 "Comprar novo laptop",
                 "Guardar dinheiro para um laptop novo",
                 200,
@@ -81,7 +81,7 @@ public class GoalsActivity extends AppCompatActivity implements NovaMetaDialog.N
                 R.drawable.ic_laptop
         ));
 
-        goals.add(new Goal(
+        metas.add(new Meta(
                 "Viajar com amigos",
                 "Economizar para viagem de fim de ano",
                 500,
@@ -90,7 +90,7 @@ public class GoalsActivity extends AppCompatActivity implements NovaMetaDialog.N
                 R.drawable.ic_travel
         ));
 
-        goalAdapter.notifyDataSetChanged();
+        metaAdapter.notifyDataSetChanged();
 
         // Configura o botão de adicionar meta
         btnAddGoal.setOnClickListener(v -> {
@@ -100,7 +100,7 @@ public class GoalsActivity extends AppCompatActivity implements NovaMetaDialog.N
     }
     // Modelo da meta criada
     public void onMetaCriada(String titulo, String descricao, int atual, int alvo) {
-        Goal novaMeta = new Goal(
+        Meta novaMeta = new Meta(
                 titulo.isEmpty() ? "Nova Meta" : titulo,
                 descricao.isEmpty() ? "Descrição da meta" : descricao,
                 atual,
@@ -108,8 +108,8 @@ public class GoalsActivity extends AppCompatActivity implements NovaMetaDialog.N
                 Color.parseColor("#4AA3FF"),
                 R.drawable.ic_goal_flag
         );
-        goals.add(novaMeta);
-        goalAdapter.notifyItemInserted(goals.size() - 1);
-        recyclerGoals.scrollToPosition(goals.size() - 1);
+        metas.add(novaMeta);
+        metaAdapter.notifyItemInserted(metas.size() - 1);
+        recyclerGoals.scrollToPosition(metas.size() - 1);
     }
 }

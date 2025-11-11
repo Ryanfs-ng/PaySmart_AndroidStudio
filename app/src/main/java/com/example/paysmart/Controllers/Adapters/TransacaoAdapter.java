@@ -7,20 +7,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.paysmart.Models.Transaction;
+import com.example.paysmart.Models.Transacao;
 import com.example.paysmart.R;
 
 import java.util.List;
 
-public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
+public class TransacaoAdapter extends RecyclerView.Adapter<TransacaoAdapter.ViewHolder> {
 
-    private List<Transaction> transactionList;
+    private List<Transacao> transacaoList;
 
-    public TransactionAdapter(List<Transaction> transactionList) {
-        this.transactionList = transactionList;
+    public TransacaoAdapter(List<Transacao> transacaoList) {
+        this.transacaoList = transacaoList;
     }
 
-    // Recebimento dos dados para o objeto através do inflate (item_transaction)
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,22 +28,20 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         return new ViewHolder(view);
     }
 
-    //Passar dinamicamente os dados como parametros para as transações
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Transaction transaction = transactionList.get(position);
-        holder.tvName.setText(transaction.getTitle());
-        holder.tvType.setText(transaction.getType());
-        holder.tvValue.setText(transaction.getAmount());
-        holder.tvDate.setText(transaction.getDate());
+        Transacao transacao = transacaoList.get(position);
+        holder.tvName.setText(transacao.getTitulo());
+        holder.tvType.setText(transacao.getTipo());
+        holder.tvValue.setText(transacao.getQuantia());
+        holder.tvDate.setText(transacao.getData());
     }
 
     @Override
     public int getItemCount() {
-        return transactionList.size();
+        return transacaoList.size();
     }
 
-    //Construtores com Recycler
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvType, tvValue, tvDate;
 

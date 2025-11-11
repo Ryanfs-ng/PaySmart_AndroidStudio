@@ -39,7 +39,7 @@
                         android:id="@+id/tvPerfilTitulo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PERFIL DO JOGADOR"
+                        android:text="PERFIL"
                         android:textColor="#E0E0E0"
                         android:textStyle="bold"
                         android:textSize="14sp"

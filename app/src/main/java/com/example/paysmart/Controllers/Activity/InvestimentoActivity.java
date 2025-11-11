@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -58,9 +57,9 @@ public class InvestimentoActivity extends AppCompatActivity {
 
     private void setupChart() {
         entries.clear();
-        entries.add(new PieEntry(40f, "Tesouro Direto"));
-        entries.add(new PieEntry(35f, "Ações"));
-        entries.add(new PieEntry(25f, "Criptomoedas"));
+        entries.add(new PieEntry(1250f, "Tesouro Direto"));
+        entries.add(new PieEntry(2740f, "Ações"));
+        entries.add(new PieEntry(3890f, "Criptomoedas"));
 
         PieDataSet dataSet = new PieDataSet(entries, "");
         dataSet.setColors(
@@ -97,7 +96,6 @@ public class InvestimentoActivity extends AppCompatActivity {
         card.setBackgroundColor(Color.parseColor("#2B2B2B"));
         card.setGravity(Gravity.CENTER_VERTICAL);
 
-        // ícone (pode trocar por ImageView com drawable)
         ImageView icon = new ImageView(this);
         icon.setImageResource(R.drawable.outline_attach_money_24);
         icon.setMinimumWidth(20);
@@ -107,7 +105,6 @@ public class InvestimentoActivity extends AppCompatActivity {
         icon.setLayoutParams(iconParams);
         card.addView(icon);
 
-        // texts (nome + rendimento)
         LinearLayout texts = new LinearLayout(this);
         texts.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams textsParams = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
@@ -128,7 +125,6 @@ public class InvestimentoActivity extends AppCompatActivity {
         texts.addView(tvReturn);
         card.addView(texts);
 
-        // valor
         TextView tvValue = new TextView(this);
         tvValue.setText(valorText);
         tvValue.setTextColor(Color.parseColor("#1E3A5F"));
@@ -136,7 +132,6 @@ public class InvestimentoActivity extends AppCompatActivity {
         tvValue.setTextSize(14);
         card.addView(tvValue);
 
-        // adicionar ao container
         dynamicInvestmentsContainer.addView(card);
     }
 
@@ -180,11 +175,10 @@ public class InvestimentoActivity extends AppCompatActivity {
             totalInvestido += valor;
             updateChart();
 
-            // atualiza o texto total
             totalInvestidoText.setText(String.format("R$ %.2f", totalInvestido));
 
             // cria card visual
-            addInvestmentCard(name, String.format("%.2f%% a.a", rendimento), String.format("R$ %.2f", valor));
+            addInvestmentCard(name, String.format("Rendimento: %.2f%% a.a", rendimento), String.format("+R$ %.2f", valor));
 
             dialog.dismiss();
             Toast.makeText(this, "Investimento adicionado!", Toast.LENGTH_SHORT).show();
@@ -194,13 +188,11 @@ public class InvestimentoActivity extends AppCompatActivity {
     }
 
     private void updateChart() {
-        // Recalcula o total atual de todos os valores
         float somaTotal = 0f;
         for (PieEntry e : entries) {
             somaTotal += e.getValue();
         }
 
-        // Normaliza os valores (para manter porcentagens corretas)
         ArrayList<PieEntry> normalizedEntries = new ArrayList<>();
         for (PieEntry e : entries) {
             float percentual = (e.getValue() / somaTotal) * 100f;
@@ -244,7 +236,7 @@ public class InvestimentoActivity extends AppCompatActivity {
                 finish();
                 return true;
             } else if (id == R.id.nav_goals) {
-                startActivity(new Intent(this, GoalsActivity.class));
+                startActivity(new Intent(this, MetasActivity.class));
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 finish();
                 return true;

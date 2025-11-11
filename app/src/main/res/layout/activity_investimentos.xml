@@ -215,7 +215,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:text="+R$ 4.890"
+                        android:text="+R$ 3.890"
                         android:textColor="#1E3A5F"
                         android:textStyle="bold"
                         android:textSize="14sp"
